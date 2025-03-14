@@ -42,6 +42,9 @@
     font-size: 22px;
     font-family: cursive;
   }
+  .form-group{
+    margin-bottom: 13px;
+  }
   .form-group input{
     width: 97%;
   }
@@ -80,12 +83,16 @@
         <label for="Username"><i class="bi bi-person-lock"></i> Username</label>
         <input type="text" name="username" id="username" placeholder="Enter Username ----------" />
       </div>
-      <br />
+      
       <div class="form-group">
         <label for="Password"><i class="bi bi-key"></i> Password</label>
         <input type="password" name="password" id="password" placeholder="Enter Password **********" />
       </div>
       <input type="checkbox" onclick="togglePassword()" style="margin-left: 10px;"> <label for="Sho/Hide">Show/Hide</label> <a href="#">Forgot Password?</a>
+      <br />
+      <div class="form-group">
+        <button type="submit">Sign In</button>
+      </div>
     </form>
   </div>
 </body>
