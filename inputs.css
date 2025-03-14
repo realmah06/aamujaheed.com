@@ -62,3 +62,18 @@
 .custom-dropdown-option:hover {
     background: #444;
 }
+.form-group{
+  margin: 7px;
+  font-weight: 450;
+}
+.form-group label{
+  display: block;
+  font-size: 18px;
+}
+.form-group input[type="text"], input[type="password"]{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 17px;
+  outline: none;
+}

@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="inputs.css" type="text/css" media="all" />
   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
   <title>INDEX @aamuj.com.ng</title>
 </head>
 <style>
@@ -41,6 +42,14 @@
     font-size: 22px;
     font-family: cursive;
   }
+  .form-group input{
+    width: 97%;
+  }
+  a{
+    text-decoration: none;
+    float: right;
+    margin-right: 15px;
+  }
   @media screen and (max-width: 1000px){
     .login-container{
       margin-top: 10px;
@@ -64,7 +73,20 @@
     </div>
     </center>
     <br />
-    <h3>Personal Details are required to Login....</h3>
+    <h3><i class="bi bi-person-check-fill"></i> Personal details are required to login....</h3>
+    <br />
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="Username"><i class="bi bi-person-lock"></i> Username</label>
+        <input type="text" name="username" id="username" placeholder="Enter Username ----------" />
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="Password"><i class="bi bi-key"></i> Password</label>
+        <input type="password" name="password" id="password" placeholder="Enter Password **********" />
+      </div>
+      <input type="checkbox" onclick="togglePassword()" style="margin-left: 10px;"> <label for="Sho/Hide">Show/Hide</label> <a href="#">Forgot Password?</a>
+    </form>
   </div>
 </body>
 <script src="inputs.js"></script>
