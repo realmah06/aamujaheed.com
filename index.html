@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="inputs.css" type="text/css" media="all" />
   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>INDEX @aamuj.com.ng</title>
 </head>
 <style>
@@ -83,6 +84,21 @@
       margin: 0;
     }
   }
+  .alert{
+    font-size: 25px;
+    font-weight: 450;
+  }
+  .confirm-btn{
+    padding: 10px 15px;
+    background-color: #2A6C9F;
+    min-width: 70px;
+  }
+  .cancel-btn{
+    padding: 10px 15px;
+    background-color: #8A1010;
+    margin-left: 20px;
+    min-width: 70px;
+  }
 </style>
 <body>
   <div class="login-container">
@@ -112,6 +128,7 @@
       <div class="form-group">
         <button type="submit">Sign In</button>
       </div>
+     
     </form>
     <br />
     <footer>
@@ -120,4 +137,76 @@
   </div>
 </body>
 <script src="inputs.js"></script>
+<script>
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var username = document.getElementById('username').value.trim();
+    var password = document.getElementById('password').value.trim();
+
+    if (username === "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops!',
+            text: 'Missing Field, Username must be filled!',
+            confirmButtonColor: '#233625'
+        });
+        return;
+    } else if (password === "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops!',
+            text: 'Missing Field, Password must be filled!',
+            confirmButtonColor: '#233625'
+        });
+        return;
+    }
+
+    if (username === "maahdi" && password === 'm$muj$_06') {
+        Swal.fire({
+            icon: 'question',
+            html: `<p class="alert">Login to Dashboard?</p>`,
+            showConfirmButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Confirm',
+            customClass: {
+                confirmButton: "confirm-btn",
+                cancelButton: "cancel-btn"
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Show loader before checking credentials
+                Swal.fire({
+                    title: 'Logging in...',
+                    html: '<b>Please wait...</b>',
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+
+                // After loading, show success message and redirect
+                setTimeout(() => {
+                    Swal.fire({
+                        icon: 'success',
+                        html: `<p class="alert">Congratulations</p>`,
+                        text: 'Redirecting to Admin Dashboard!',
+                        timer: 2000,
+                        showConfirmButton: true
+                    }).then(() => {
+                        window.location.href = "dashboard.html"; // Redirect after Swal closes
+                    });
+                }, 1500); // Simulate loading time
+            }
+        });
+    } else {
+        Swal.fire({
+            icon: 'error',
+            html: `<p class="alert">Wrong Username or Password</p>`,
+            confirmButtonColor: '#233625'
+        });
+    }
+});
+
+</script>
 </html>
