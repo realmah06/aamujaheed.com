@@ -12,6 +12,9 @@
   <title>DASHBOARD @aamujaheed.com</title>
 </head>
 <style type="text/css" media="all">
+body{
+  overflow-x: hidden;
+}
   .container{
     background-color: #fff;
     width: 100%;
@@ -26,8 +29,8 @@
     padding: 7px 15px;
     width: 100%;
     background-color: #fff;
-    height: 79vh;
-    overflow: scroll;
+    height: 80vh;
+    overflow: hidden;
     
   }
   .sidebar img{
@@ -75,12 +78,18 @@
   }
   .content .sections{
     display: flex;
+    height: 70vh;
+    overflow: hidden;
   }
   .left{
     width: 70%;
+    overflow: scroll;
+    scrollbar-width: none;
   }
   .right{
     width: 28%;
+    height: 70vh;
+    overflow: hidden;
   }
   .sections .left .row{
     
