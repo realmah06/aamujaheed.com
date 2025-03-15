@@ -148,7 +148,7 @@ summary span {
     border: 1px solid #ddd;
     padding: 0 20px;
     max-height: 0;
-    overflow: hidden;
+    overflow: scroll;
     opacity: 0;
     transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, padding 0.3s ease-in-out;
 }
@@ -210,7 +210,7 @@ details:not([open]) .details-content {
 tbody{
   border: 1px solid #ccc;
   margin-top: 10px;
-  height: 140px;
+  height: 160px;
 }
 tbody td{
   font-weight: bold;
@@ -377,6 +377,55 @@ tbody td{
         <tr>
           <td colspan="2" style="color: green;">₦0.00</td>
           <td colspan="2" style="color: red;">₦0.00</td>
+          <td colspan="4">₦0.00</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+  </div>
+</details>
+
+
+
+      <details>
+  <summary>VENDOR TRUCKS awaiting confirmation <span>0</span></summary>
+  <div class="details-content">
+    <h1>Vendor Trucks waiting Confirmation</h1>
+    <hr style="border: 1px solid #eee;" />
+    <div class="head">
+      <input type="search" placeholder="Search...">
+      <button>Confirm Mark Ones</button>
+    </div>
+    <br />
+    <table>
+      <thead>
+        <tr>
+          <th>S/No</th>
+          <th>Date</th>
+          <th>Poster</th>
+          <th>Supplier</th>
+          <th>DO_No</th>
+          <th>Product</th>
+          <th>Qty</th>
+          <th>Cost_Price</th>
+          <th>Truck_No</th>
+          <th>Driver_Phone</th>
+          <th>Destination</th>
+          <th>T.P_Amount</th>
+          <th>Agent</th>
+          <th>Preview</th>
+          <th>Discard</th>
+          <th><input type="checkbox"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="16" class="no-transactions">No More Credit & Debit Transaction at this Moment!</td>
+        </tr>
+        <tr>
+          <td colspan="4">Grand Total Amount</td>
+        </tr>
+        <tr>
           <td colspan="4">₦0.00</td>
         </tr>
       </tbody>
