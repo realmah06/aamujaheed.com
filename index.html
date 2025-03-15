@@ -141,6 +141,7 @@
   document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
+    var form = document.getElementById('loginForm'); // Reference to the form
     var username = document.getElementById('username').value.trim();
     var password = document.getElementById('password').value.trim();
 
@@ -185,24 +186,25 @@
                     }
                 });
 
-                // After loading, show success message and redirect
+                // Simulate loading before success message
                 setTimeout(() => {
                     Swal.fire({
                         icon: 'success',
-                        html: `<p class="alert">Congratulations</p>`,
+                        title: 'Login Successful',
                         text: 'Redirecting to Admin Dashboard!',
                         timer: 2000,
-                        showConfirmButton: true
+                        showConfirmButton: false
                     }).then(() => {
+                        form.reset(); // Reset the form
                         window.location.href = "dashboard.html"; // Redirect after Swal closes
                     });
-                }, 1500); // Simulate loading time
+                }, 1500); // Simulated delay
             }
         });
     } else {
         Swal.fire({
             icon: 'error',
-            html: `<p class="alert">Wrong Username or Password</p>`,
+            title: 'Wrong Username or Password!',
             confirmButtonColor: '#233625'
         });
     }
