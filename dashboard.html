@@ -19,7 +19,7 @@
     padding: 10px;
   }
   .container .sidebar{
-    width: 100px;
+    width: 80px;
     padding: 7px;
   }
   .container .content{
@@ -70,9 +70,151 @@
   }
   .header .profile img{
     height: 45px;
-    width: 48px;
+    width: 46px;
     border-radius: 50%;
   }
+  .content .sections{
+    display: flex;
+  }
+  .left{
+    width: 70%;
+  }
+  .sections .left .row{
+    
+  }
+  .row .item{
+    display: inline-block;
+    width: 27%;
+    padding: 10px 20px;
+    height: 140px;
+    align-items: center;
+    border-radius: 5px;
+  }
+  .item i{
+    font-size: 35px;
+    padding: 10px 13px;
+    border-radius: 50%;
+    color: #fff;
+  }
+  .item p{
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 450;
+    color: #000;
+    text-align: center;
+  }
+  .item h2{
+    font-size: 23px;
+    margin-top: 7px;
+    color: darkgreen;
+    text-align: end;
+  }
+  .item1 i{
+    background-color: #631C9C;
+  }
+  .item2 i{
+    background-color: deeppink;
+  }
+  .item3 i{
+    background-color: dodgerblue;
+  }
+  details {
+    padding: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+summary {
+    list-style: none;
+    background-color: #F5F5F5;
+    padding: 15px 20px;
+    border-radius: 3px;
+    color: #3B6099;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+summary:hover {
+    background-color: #e0e0e0;
+}
+
+summary span {
+    float: right;
+    color: darkred;
+}
+
+/* Initially hidden content */
+.details-content {
+    border: 1px solid #ddd;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, padding 0.3s ease-in-out;
+}
+
+/* When details is opened */
+details[open] .details-content {
+    max-height: 1000px; /* Allow smooth expansion */
+    opacity: 1;
+    padding: 10px 20px;
+}
+
+/* When closing */
+details:not([open]) .details-content {
+    max-height: 0;
+    opacity: 0;
+    padding: 0 20px;
+}
+
+
+  .details-content h1{
+    padding: 10px;
+    text-align: center;
+    margin: 7px;
+    font-size: 25px;
+  }
+  .details-content .head{
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .details-content .head label{
+    color: darkred;
+    font-weight: bold;
+  }
+  .details-content .head button{
+    width: 400px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #35578D;
+  }
+   table{
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td{
+    border: 1px solid #eee;
+    font-size: 15px;
+    padding: 7px
+  }
+  .no-transactions {
+    font-size: 20px;
+    color: #196DC8;
+    font-weight: bold;
+    text-align: center;
+}
+tbody{
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  height: 140px;
+}
+tbody td{
+  font-weight: bold;
+}
 </style>
 <body>
   <div class="container">
@@ -125,8 +267,149 @@
       </div>
       <br />
       <hr />
+      <br />
+      <div class="sections">
+      <div class="left">
+        <div class="row">
+          <div class="item item1">
+           <br />
+            <i class="bi bi-coin"></i>
+            <p>Available Balance</p>
+            <h2>₦0.00</h2>
+          </div>
+          <div class="item item2">
+            <br />
+            <i class="bi bi-credit-card-fill"></i>
+            <p>Annual Expenses</p>
+            <h2>₦0.00</h2>
+          </div>
+          <div class="item item3">
+            <br />
+          <i class="bi bi-pie-chart-fill"></i>
+          <p>Net Profit</p>
+            <h2>₦0.00</h2>
+          </div>
+        </div>
+         <br />
+         <hr style="border: 1px solid darkgreen;"/>
+         <h1 style="font-size: 25px;padding: 12px;text-align: center;margin: 5px;color: #50A3FF;"><i class="bi bi-hourglass-split"></i> Administrative Transactions Confirmation</h1>
+         <hr style="border: 1px solid darkgreen;"/>
+         <br />
+         <details>
+           <summary>BANK TRANSACTIONS awaiting confirmation <span>0</span></summary>
+           <div class="details-content">
+             <h1>Bank Account Transactions waiting Confirmation</h1>
+             <hr style="border: 1px solid #eee;"/>
+             <div class="head">
+               <input type="search" placeholder="Search...">
+               <button>Confirm Mark Ones</button>
+             </div>
+             <br />
+             <table>
+               <thead>
+               <tr>
+                 <th>S/No</th>
+                 <th>Date</th>
+                 <th>Poster</th>
+                 <th>Category</th>
+                 <th>Description</th>
+                 <th>Amount</th>
+                 <th>Discard</th>
+                 <th><input type="checkbox"></th>
+               </tr>
+               </thead>
+               <tbody>
+                 <tr>
+          <td colspan="8" class="no-transactions">No More Bank Transaction at this Moment!</td>
+                 </tr>
+                 <tr>
+                   <td colspan="2" style="color: green;">Total Credit of the Period</td>
+                   <td colspan="2" style="color: red;">Total Debit of the Period</td>
+                   <td colspan="4">Grand Total Amount</td>
+                 </tr>
+                  <tr>
+                   <td colspan="2" style="color: green;">₦0.00</td>
+                   <td colspan="2" style="color: red;">₦0.00</td>
+                   <td colspan="4">₦0.00</td>
+                 </tr>
+               </tbody>
+             </table>
+             <br />
+           </div>
+         </details>
+         
+         
+         
+         
+         
+<details>
+  <summary>CREDIT & DEBIT TRANSACTIONS awaiting confirmation <span>0</span></summary>
+  <div class="details-content">
+    <h1>Credit & Debit Transactions waiting Confirmation</h1>
+    <hr style="border: 1px solid #eee;" />
+    <div class="head">
+      <input type="search" placeholder="Search...">
+      <button>Confirm Mark Ones</button>
+    </div>
+    <br />
+    <table>
+      <thead>
+        <tr>
+          <th>S/No</th>
+          <th>Date</th>
+          <th>Poster</th>
+          <th>Category</th>
+          <th>Reason</th>
+          <th>Amount</th>
+          <th>Discard</th>
+          <th><input type="checkbox"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="8" class="no-transactions">No More Credit & Debit Transaction at this Moment!</td>
+        </tr>
+        <tr>
+          <td colspan="2" style="color: green;">Total Credit of the Period</td>
+          <td colspan="2" style="color: red;">Total Debit of the Period</td>
+          <td colspan="4">Grand Total Amount</td>
+        </tr>
+        <tr>
+          <td colspan="2" style="color: green;">₦0.00</td>
+          <td colspan="2" style="color: red;">₦0.00</td>
+          <td colspan="4">₦0.00</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+  </div>
+</details>
+      </div>
+      <div class="right">
+        <h1>Right</h1>
+      </div>
+      </div>
     </div>
   </div>
 </body>
+<script>
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    const detailsList = document.querySelectorAll("details");
 
+    detailsList.forEach((details) => {
+        details.addEventListener("toggle", function () {
+            if (this.open) {
+                detailsList.forEach((otherDetails) => {
+                    if (otherDetails !== this) {
+                        otherDetails.removeAttribute("open"); // Close other <details>
+                    }
+                });
+            }
+        });
+    });
+});
+
+
+</script>
 </html>
