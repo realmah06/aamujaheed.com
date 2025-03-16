@@ -4,7 +4,7 @@
 }
 
 .custom-dropdown-wrapper {
-    width: 500px; /* Set a fixed width */
+    width: auto; /* Set a fixed width */
 }
 
 .custom-dropdown {
@@ -40,7 +40,7 @@
 }
 
 .custom-dropdown-search {
-    width: 96%;
+    width: 95%;
     background: #fff;
     color: #000;
     border: 1px solid #ccc;
