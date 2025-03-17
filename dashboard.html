@@ -77,7 +77,123 @@
 .nonn{
   display: none;
 }
-
+.row{
+  display: flex;
+  padding: 20px;
+}
+.row .item{
+  border: 1px solid #eee;
+  margin: 10px;
+  padding: 15px;
+  width: 33%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px #555;
+  display: flex;
+  align-items: center;
+  
+}
+.item .icon{
+  font-size: 35px;
+  color: #551F88;
+  padding: 10px;
+}
+.item .det{
+  margin-left: 10px;
+}
+.det p{
+  font-size: 18px;
+  color: #6D93C1;
+  margin: 3px;
+}
+.det h2{
+  color: darkgreen;
+  font-size: 20px;
+  margin: 3px;
+}
+details{
+  padding: 5px;
+  margin: 10px;
+  
+}
+details summary{
+  padding: 12px 17px;
+  list-style: none;
+  background-color: #ECECEC;
+  color: #4879CA;
+  font-size: 16px;
+  font-weight: 450;
+  border-radius: 3px;
+}
+.details-container{
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #ddd;
+  height: 40vh;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+details[open] {
+  animation: fadeIn 0.3s ease-in-out;
+}
+.divs{
+  height: 51vh;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+.details-header{
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.details-header button {
+  padding: 10px 13px;
+  width: 300px;
+  border: none;
+  color: #fff;
+  border-radius: 3px;
+  background-color: #2581D0;
+}
+.details-table{
+  border-top: 1px solid #ABABAB;
+  border-bottom: 1px solid #ABABAB;
+  min-height: 24vh;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+.details-table table{
+  width: 100%;
+  border-collapse: collapse;
+}
+th{
+  text-align: center;
+  border: 1px solid #eee;
+  padding: 10px;
+}
+td{
+  font-size: 17px;
+  padding: 7px;
+  border-bottom: 1px solid #eee;
+}
+.no-data{
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #eee;
+  margin: 15px;
+  height: 80px;
+  font-weight: bold;
+  color: #173272;
+  font-size: 23px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* Hide sidebar on smaller screens */
 @media screen and (max-width: 1000px) {
   body{
@@ -111,14 +227,15 @@
 
 </style>
 <body>
+  <!-- Show Menu Toggle -->
   <div class="head">
   <div class="toggle-btn" onclick="toggleSidebar()">
   <i class="bi bi-list"></i>
 </div>
   </div>
-  
+  <!-- Menu Overlay -->
 <div class="overlay" id="overlay" onclick="hideSidebar()"></div>
-
+<!-- Sidebar -->
 <div class="sidebar" id="sidebar">
   <center>
     <img src="logo.jpg" alt="logo" height="70">
@@ -159,12 +276,134 @@
     </a>
   </div>
 </div>
-
+<!-- Left Section -->
 <div class="left">
   <div class="nonn">
     <br /><br /><br /><br />
   </div>
-  Left</div>
+  <div class="row">
+    <!-- Bank Balance -->
+    <div class="item">
+      <div class="icon">
+        <i class="bi bi-cash-stack"></i>
+      </div>
+      <div class="det">
+        <p>Bank Balance</p>
+        <h2>₦0.00</h2>
+      </div>
+    </div>
+    <div class="item">
+      <div class="icon">
+        <i class="bi bi-credit-card-fill"></i>
+      </div>
+      <div class="det">
+        <p>Total Expenses</p>
+        <h2>₦0.00</h2>
+      </div>
+    </div>
+    <div class="item">
+      <div class="icon">
+        <i class="bi bi-cart3"></i>
+      </div>
+      <div class="det">
+        <p>Sales & Delivery</p>
+        <h2>₦0.00</h2>
+      </div>
+    </div>
+  </div>
+  <br /><br />
+  <hr style="border: 1px solid darkgreen;" />
+  <h1 style="font-size: 23px;padding: 7px;margin: 7px;text-align: center;color: darkred;"><i class="bi bi-folder-check"></i> Administrative Transactions Confirmation</h1>
+  <hr style="border: 1px solid darkgreen;" />
+  <br />
+  
+  <div class="divs">
+  <details>
+    <summary><i class="bi bi-bank2"></i> Bank Transactions Awaiting Confirmation <span style="float: right;">0</span></summary>
+    
+    <div class="details-container">
+    <h3 style="margin: 10px;padding10px;text-align: center;">0 Bank Transactions Waiting to Confirm</h2>
+    <br />
+    <div class="details-header">
+      <button>Confirm Mark Ones</button>
+      <input type="search" placeholder="Search Bank Account..." class="wt-40">
+    </div>
+    <hr style="border: 1px solid #eee;" />
+    <br />
+    <div class="details-table">
+      <table>
+        <tr>
+          <th>S/No</th>
+          <th>Date<small><em>(time)</em></small></th>
+          <th>Poster</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Report</th>
+          <th>Discard</th>
+          <th>Confirm</th>
+        </tr>
+        <tbody>
+          <tr>
+            <td class="no-data" colspan="8">No More Bank Transactions is available at this moment!</td>
+          </tr>
+          <tr>
+            <td colspan="2" style="font-weight: bold;">Grand Total</td>
+            <td colspan="2" style="font-weight: bold;color: green;">₦0.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </details>
+  
+  
+  <details>
+    <summary><i class="bi bi-pencil-square"></i> Adjustment Transactions Awaiting Confirmation <span style="float: right;">0</span></summary>
+    <div class="details-container">
+    <h3 style="margin: 10px;padding10px;text-align: center;">0 Adjustment Transactions Waiting to Confirm</h2>
+    <br />
+    <div class="details-header">
+      <button>Confirm Mark Ones</button>
+      <input type="search" placeholder="Search Adjustment Transactions..." class="wt-40">
+    </div>
+    <hr style="border: 1px solid #eee;" />
+    <br />
+    <div class="details-table">
+      <table>
+        <tr>
+          <th>S/No</th>
+          <th>Date<small><em>(time)</em></small></th>
+          <th>Poster</th>
+          <th>Category</th>
+          <th>Reason</th>
+          <th>Amount</th>
+          <th>Report</th>
+          <th>Discard</th>
+          <th>Confirm</th>
+        </tr>
+        <tbody>
+          <tr>
+            <td class="no-data" colspan="8">No More Adjustment Transactions is available at this moment!</td>
+          </tr>
+          <tr>
+            <td colspan="2" style="font-weight: bold;">Grand Total</td>
+            <td colspan="2" style="font-weight: bold;color: green;">₦0.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </details>
+  
+    <details>
+    <summary>jkk</summary>
+    <div class="details-container">
+      
+    </div>
+  </details>
+  </div>
+ </div>
 <div class="right">Right</div>
 
 <script>
@@ -177,6 +416,16 @@
     document.getElementById("sidebar").classList.remove("show");
     document.getElementById("overlay").classList.remove("show");
   }
+  
+  document.querySelectorAll("details").forEach((detail) => {
+    detail.addEventListener("click", function () {
+      document.querySelectorAll("details").forEach((otherDetail) => {
+        if (otherDetail !== detail) {
+          otherDetail.removeAttribute("open");
+        }
+      });
+    });
+  });
 </script>
 
 </body>
