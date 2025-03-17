@@ -1,0 +1,198 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Index @aamujaheed.com.ng</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="inputs.css" type="text/css" media="all" />
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+    }
+    .area{
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .overlay{
+      height: 100%;
+      width: 50%;
+      background: transparent;
+      backdrop-filter: blur(13px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url(logo.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .overlay .bg{
+      height: 100%;
+      width: 100%;
+      background: transparent;
+      backdrop-filter: blur(7px);
+    }
+    .login-container{
+      background: transparent;
+      width: 500px;
+      padding: 10px;
+    }
+    .login-container h1{
+      font-size: 23px;
+      text-align: center;
+      color: darkred;
+      margin: 10px;
+      text-decoration: underline;
+    }
+    .form-group{
+      margin-top: 15px;
+    }
+    .form-group input:focus {
+      box-shadow: 0px 0px 2px #1C2694;
+      outline: none;
+    }
+    a{
+      text-decoration: none;
+      float: right;
+      margin: 7px;
+    }
+    button{
+      width: 100%;
+      padding: 7px 13px;
+      font-size: 18px;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+      background-color: #1A3C4C;
+      text-align: center;
+    }
+    .spinner {
+      display: none;
+      width: 24px;
+      height: 24px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @media screen and (max-width: 1000px){
+      .overlay{
+        display: none;
+      }
+      .area{
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="area">
+    <div class="login-container">
+      <center>
+        <img src="icon.jpg" alt="logo" height="110">
+      </center>
+      <h1>a_a_mujaheed_global_enterprises</h1>
+      <hr style="border: 1px solid #eee;" />
+      <br />
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="Username">Username <span>*</span></label>
+          <input type="text" name="username" id="username" class="wt-100" placeholder="Username"/>
+        </div>
+        <div class="form-group">
+          <label for="Password">Password</label>
+          <input type="password" name="password" id="password" class="wt-100" placeholder="Password" />
+        </div>
+        <input type="checkbox" style="margin: 7px;" onclick="togglePassword()"> <span>Show</span> 
+        <a href="#">Forgot Password?</a>
+        <div class="form-group">
+          <button type="submit">
+            <span id="btnText">Login</span>
+            <center>
+              <div class="spinner" id="spinner"></div>
+            </center>
+          </button>
+        </div>
+      </form>
+      <br /><br />
+      <hr style="border: 1px solid #eee;" />
+      <br />
+    </div>
+  </div>
+  <div class="overlay"><div class="bg"></div></div>
+
+  <script>
+    function togglePassword() {
+      let passwordInput = document.getElementById('password');
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+      } else {
+        passwordInput.type = "password";
+      }
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(event){
+      event.preventDefault();
+      
+      var username = document.getElementById('username').value.trim();
+      var password = document.getElementById('password').value.trim();
+      let spinner = document.getElementById('spinner');
+      let btnText = document.getElementById('btnText');
+
+      if (username === "") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops!',
+          text: 'Username field is missed'
+        });
+        return;
+      }
+
+      if (password === "") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops!',
+          text: 'Password field is missed'
+        });
+        return;
+      }
+
+      // Show spinner and hide button text
+      btnText.style.display = "none";
+      spinner.style.display = "block";
+
+      setTimeout(() => {
+        if (username === 'maahdi' && password === "m$muj$_06") {
+          Swal.fire({
+            icon: "success",
+            title: "Login Successful",
+            text: "Redirecting to dashboard...",
+            timer: 2000,
+            showConfirmButton: true
+          }).then(() => {
+            window.location.href = "dashboard.html";
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Login Failed",
+            text: "Incorrect Username or Password"
+          });
+
+          // Reset spinner and button text
+          spinner.style.display = "none";
+          btnText.style.display = "inline";
+        }
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
