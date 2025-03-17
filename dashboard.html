@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
   <link rel="stylesheet" href="inputs.css" type="text/css" media="all" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <style>
   body{
@@ -20,11 +21,11 @@
 }
 
 .left {
-  width: 60%;
+  width: 65%;
 }
 
 .right {
-  width: 33%;
+  width: 28%;
 }
 
 .sidebar img {
@@ -170,9 +171,11 @@ th{
   padding: 10px;
 }
 td{
-  font-size: 17px;
+  font-size: 16px;
+  text-align: center;
   padding: 7px;
   border-bottom: 1px solid #eee;
+  
 }
 .no-data{
   text-align: center;
@@ -198,6 +201,29 @@ td{
     opacity: 1;
     transform: translateY(0);
   }
+}
+.title-alert{
+  font-size: 25px;
+  margin: 7px;
+  font-weight: 500;
+}
+
+.my-confirm-btn {
+  background-color: #134C72 !important;
+  color: white !important;
+  margin: 5px;
+  padding: 10x 20px;
+}
+
+.my-cancel-btn {
+  background-color: darkred !important;
+  color: white !important;
+  margin: 5px;
+  padding: 10x 20px;
+}
+.td b{
+  font-weight: 500;
+  font-size: 12px; 
 }
 /* Hide sidebar on smaller screens */
 @media screen and (max-width: 1000px) {
@@ -402,7 +428,7 @@ td{
     <h3 style="margin: 10px;padding10px;text-align: center;">0 Bank Transactions Waiting to Confirm</h2>
     <br />
     <div class="details-header">
-      <button>Confirm Mark Ones</button>
+      <button onclick="confirmBank()">Confirm Mark Ones</button>
       <input type="search" placeholder="Search Bank Account..." class="wt-40">
     </div>
     <hr style="border: 1px solid #eee;" />
@@ -414,16 +440,18 @@ td{
           <th>Date<small><em>(time)</em></small></th>
           <th>Poster</th>
           <th>Category</th>
-          <th>Description</th>
+          <th style="width: 45%;">Description</th>
           <th>Amount</th>
           <th>Report</th>
           <th>Discard</th>
-          <th>Confirm</th>
+          <th><input type="checkbox"></th>
         </tr>
         <tbody>
+          
           <tr>
             <td class="no-data" colspan="8">No More Bank Transactions is available at this moment!</td>
           </tr>
+          
           <tr>
             <td colspan="2" style="font-weight: bold;">Grand Total</td>
             <td colspan="2" style="font-weight: bold;color: green;">₦0.00</td>
@@ -583,9 +611,43 @@ td{
       </div>
     </div>
   </details>
+  
+  <div class="row">
+    <div class="item">
+      <div class="icon">
+        <i class="bi bi-arrow-right-circle-fill"></i>
+      </div>
+      <div class="det">
+        <p>Total Credit</p>
+        <h2>₦0.00</h2>
+      </div>
+    </div>
+    <div class="item">
+      <div class="icon">
+        <i class="bi bi-arrow-right-circle-fill"></i>
+      </div>
+      <div class="det">
+        <p>Total Debit</p>
+        <h2>-₦0.00</h2>
+      </div>
+    </div>
+     <div class="item">
+      <div class="icon">
+        <i class="bi bi-arrow-right-circle-fill"></i>
+      </div>
+      <div class="det">
+        <p>Margin</p>
+        <h2>₦0.00</h2>
+      </div>
+    </div>
+  </div>
   </div>
  </div>
-<div class="right">Right</div>
+<div class="right">
+  
+
+
+</div>
 
 <script>
   function toggleSidebar() {
@@ -607,6 +669,51 @@ td{
       });
     });
   });
+  
+  function confirmBank() {
+  
+    Swal.fire({
+      icon: 'question',
+      html: `<p class="title-alert">Confirm Mark Ones?</p>`,
+      showCancelButton: true,
+      confirmButtonText: "Confirm",
+      cancelButtonText: "Cancel",
+      allowOutsideClick: false,
+      showLoaderOnConfirm: true,
+      customClass: {
+        confirmButton: "my-confirm-btn",
+        cancelButton: "my-cancel-btn"
+      },
+      preConfirm: () => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve();
+            Swal.fire("Marked!", "Your request has been processed.", "success");
+          }, 4000); // 4-second delay
+        });
+      }
+    });
+}
+
+
+let inactivityTimeout;
+
+function resetTimer() {
+  clearTimeout(inactivityTimeout); // Clear previous timeout
+  inactivityTimeout = setTimeout(() => {
+    window.location.href = "index.html"; // Redirect to index page
+  }, 300000); // 5 minutes (300,000 milliseconds)
+}
+
+// Reset the timer when user interacts (mouse, keyboard, touch)
+document.addEventListener("mousemove", resetTimer);
+document.addEventListener("keydown", resetTimer);
+document.addEventListener("touchstart", resetTimer);
+
+// Start the inactivity timer
+resetTimer();
+
+
 </script>
 
 </body>
