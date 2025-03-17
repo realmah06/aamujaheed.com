@@ -45,8 +45,8 @@
 }
 .head{
   position: fixed;
-  top: 10px;
-  left: 10px;
+  top: 0;
+  left: 0;
   font-size: 25px;
   cursor: pointer;
   border-bottom: 1px solid #eee;
@@ -61,6 +61,7 @@
   display: none;
   padding: 5px 10px;
   border-radius: 5px;
+  margin: 7px;
 }
 
 /* Overlay for closing sidebar */
@@ -241,9 +242,29 @@ td{
   }
 }
 @media screen and (max-width: 500px){
+  .row{
+    background-image: url(bg6.jpg);
+    margin: 0;
+    background-position: center;
+  }
   .row .item{
     display: block;
     width: 90%;
+    text-align: center;
+    border: none;
+    color: #fff;
+  }
+  .item .icon{
+    color: #fff;
+  }
+  .item .det p{
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .item .det h2{
+    color: #fff;
   }
   .details-header{
     display: block;
@@ -255,6 +276,10 @@ td{
   .details-header input {
     width: 90%;
     margin: 7px;
+  }
+  .head{
+    background-color: #fff;
+    width: 100%;
   }
 }
 
