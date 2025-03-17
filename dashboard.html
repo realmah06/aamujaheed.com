@@ -183,6 +183,11 @@ td{
   font-weight: bold;
   color: #173272;
   font-size: 23px;
+  transition: all 0.2s ease-in-out;
+}
+.no-data:hover{
+  background-color: #F5F5F5;
+  letter-spacing: 1px;
 }
 @keyframes fadeIn {
   from {
@@ -205,7 +210,7 @@ td{
   .sidebar {
     position: fixed;
     left: -100%;
-    width: 11%;
+    width: 100px;
     height: 100vh;
     background: white;
     transition: left 0.3s ease-in-out;
@@ -222,6 +227,34 @@ td{
 
   .overlay.show {
     display: block;
+  }
+  .left{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 750px){
+  .row{
+    display: block;
+  }
+  .row .item{
+    display: inline-flex;
+  }
+}
+@media screen and (max-width: 500px){
+  .row .item{
+    display: block;
+    width: 90%;
+  }
+  .details-header{
+    display: block;
+  }
+  .details-header button
+    width: 100%;
+    margin: 7px;
+  }
+  .details-header input {
+    width: 90%;
+    margin: 7px;
   }
 }
 
@@ -396,10 +429,116 @@ td{
     </div>
   </details>
   
-    <details>
-    <summary>jkk</summary>
+      <details>
+    <summary><i class="bi bi-truck"></i> Vendor Trucks Awaiting Confirmation <span style="float: right;">0</span></summary>
+
     <div class="details-container">
-      
+      <h3 style="margin: 10px;padding10px;text-align: center;">0 Vendor Trucks Waiting to Confirm</h2>
+        <br />
+        <div class="details-header">
+          <button>Confirm Mark Ones</button>
+          <input type="search" placeholder="Search Vendor Trucks..." class="wt-40">
+        </div>
+        <hr style="border: 1px solid #eee;" />
+        <br />
+        <div class="details-table">
+          <table>
+            <tr>
+              <th>S/No</th>
+              <th>Date<small><em>(time)</em></small></th>
+              <th>Poster</th>
+              <th>Supplier</th>
+              <th>DO_NO</th>
+              <th>Product</th>
+              <th>Cost_Price</th>
+              <th>Qty</th>
+              <th>Ship_From</th>
+              <th>Ship_To</th>
+              <th>Truck_No</th>
+              <th>Dr_Phone</th>
+              <th>Transporter</th>
+              <th>Agent</th>
+              <th>T.P_Amount</th>
+              <th>Amount</th>
+              <th>Discard</th>
+              <th>Sold_Out</th>
+              <th>Report</th>
+              <th>Confirm</th>
+            </tr>
+            <tbody>
+              <tr>
+                <td class="no-data" colspan="19">No More Vendor Trucks is available at this moment!</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="font-weight: bold;">Grand Total</td>
+                <td colspan="2" style="font-weight: bold;color: green;">₦0.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </details>
+  
+  
+      <details>
+    <summary><i class="bi bi-truck"></i> Agent Trucks Awaiting Confirmation <span style="float: right;">0</span></summary>
+
+    <div class="details-container">
+      <h3 style="margin: 10px;padding10px;text-align: center;">0 Agent Trucks Waiting to Confirm</h2>
+        <br />
+        <div class="details-header">
+          <button>Confirm Mark Ones</button>
+          <input type="search" placeholder="Search Agent Trucks..." class="wt-40">
+        </div>
+        <hr style="border: 1px solid #eee;" />
+        <br />
+        <div class="details-table">
+          <table>
+            <tr>
+              <th>S/No</th>
+              <th>Date<small><em>(time)</em></small></th>
+              <th>Poster</th>
+              <th>Agent</th>
+              <th>Product</th>
+              <th>Cost_Price</th>
+              <th>Qty/Kg</th>
+              <th>Ship_From</th>
+              <th>Ship_To</th>
+              <th>Truck_No</th>
+              <th>Dr_Phone</th>
+              <th>Transporter</th>
+              <th>Company</th>
+              <th>Branch</th>
+              <th>Amount</th>
+              <th>Discard</th>
+              <th>Sold_Out</th>
+              <th>Report</th>
+              <th>Confirm</th>
+            </tr>
+            <tbody>
+              <tr>
+                <td class="no-data" colspan="18">No More Vendor Trucks is available at this moment!</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="font-weight: bold;">Grand Total</td>
+                <td colspan="2" style="font-weight: bold;color: green;">₦0.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </details>
+  
+  
+  
+        <details>
+    <summary><i class="bi bi-graph-up-arrow"></i> Transactions Summary By Day </summary>
+
+    <div class="details-container">
+      <div class="form-group">
+        <lable>Start Date<span>*</span></lable>
+        <input type="date" name="start-date" id="start-date" />
+      </div>
     </div>
   </details>
   </div>
