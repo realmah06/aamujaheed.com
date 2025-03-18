@@ -25,6 +25,7 @@
 
 .right {
   width: 28%;
+  padding: 10px;
 }
 
 .sidebar img {
@@ -50,7 +51,7 @@
   font-size: 25px;
   cursor: pointer;
   border-bottom: 1px solid #eee;
-  
+  width: 100%;
   z-index: 1001;
   background: #fff;
   color: #000;
@@ -222,7 +223,33 @@ td{
 }
 .td b{
   font-weight: 500;
-  font-size: 12px; 
+  font-size: 12px;
+}
+.profit-container{
+  border: 1px solid #eee;
+  margin-top: 13px;
+  width: 100%;
+  border-radius: 5px;
+}
+.profit-container .heads{
+  background-color: #638364;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+.profit-container .cont{
+  padding: 10px;
+}
+.profit-container .cont h2{
+  font-size: 18px;
+  margin: 7px 10px 16px;
+}
+.profit-container .cont .cr{
+  color: green;
+}
+.profit-container .cont .dr{
+  color: red;
 }
 /* Hide sidebar on smaller screens */
 @media screen and (max-width: 1000px) {
@@ -231,6 +258,9 @@ td{
   }
   .nonn{
     display: block; 
+  }
+  .divs{
+    height: auto;
   }
   .sidebar {
     position: fixed;
@@ -263,10 +293,17 @@ td{
   .left{
     width: 100%;
   }
+  .right{
+    width: 97%;
+  }
     .row{
     background-image: url(bg6.jpg);
     margin: 0;
     background-position: center;
+  }
+  .item{
+    border: none;
+    box-shadow: none;
   }
   .item .icon{
     color: #fff;
@@ -278,6 +315,9 @@ td{
   }
   .item h2{
     color: #fff;
+  }
+  .profit-container h2 span{
+    float: right;
   }
 }
 @media screen and (max-width: 750px){
@@ -617,7 +657,7 @@ td{
       </div>
     </div>
   </details>
-  
+  <hr style="border: 1px solid darkgreen;margin-top: 15px;" />
   <div class="row">
     <div class="item">
       <div class="icon">
@@ -650,9 +690,36 @@ td{
   </div>
  </div>
 <div class="right">
+  <div class="profit-container">
+    <div class="heads">
+      <p>Annual Goods & Financial Performance of 2025</p>
+    </div>
+    <br />
+    <div class="cont">
+      <h2><i class="bi bi-cart3"></i> Grains Supplied <span class="cr">₦0/0bags</span></h2>
+      <h2><i class="bi bi-cart3"></i> Pending Delivery <span class="cr">₦0/0bags</span></h2>
+      <h2><i class="bi bi-1-circle"></i> One-Time Delivery Rate <span class="cr">0%</span></h2>
+      <h2><i class="bi bi-arrow-repeat"></i> Inventory Turn-Over <span class="cr">0</span></h2>
+      <h2><i class="bi bi-cart3"></i> Fertilizer Supplied <span class="cr">₦0/0bags</span></h2>
+        <h2><i class="bi bi-cart3"></i> Pending Sales <span class="cr">₦0/0bags</span></h2>
+        <h2><i class="bi bi-arrow-down-circle"></i> Total Bank In + <span class="cr">₦0.00</span></h2>
+        <h2><i class="bi bi-arrow-up-circle"></i> Total Bank Out - <span class="dr">₦0.00</span></h2>
+    </div>
+  </div>
   
-
-
+      <div class="profit-container">
+    <div class="heads">
+      <p>Daily Performance </p>
+    </div>
+    <br />
+    <div class="cont">
+      <h2><i class="bi bi-activity"></i> Profit & Loss <span><span class="dr">₦0</span> <span class="cr"> ₦0 &nbsp;</span></span></h2>
+      <h2><i class="bi bi-bank2"></i> Confirmed Bank Transactions <span class="cr">₦0.00</span></h2>
+      <h2><i class="bi bi-pencil-square"></i> Confirmed Adjustment <span class="cr">₦0</span></h2>
+      <h2><i class="bi bi-truck"></i> Confirmed Vendor Trucks <span class="cr">₦0</span></h2>
+      <h2><i class="bi bi-truck"></i> Confirmed Agent Trucks <span class="cr">₦0</span></h2>
+    </div>
+  </div>
 </div>
 
 <script>
