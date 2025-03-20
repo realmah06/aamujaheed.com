@@ -272,7 +272,7 @@ label > span{
   background: rgba(0, 0, 0, 0.3);
   z-index: 1000;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1000px) {
     .sidebar {
     position: fixed;
     left: -100%;
