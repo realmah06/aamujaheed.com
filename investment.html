@@ -236,24 +236,11 @@ table td{
   <!-- Sub Header -->
   <div class="sub-header">
     <div class="dropdown">
-        <button class="dropdown-btn"><i class="bi bi-person-fill-add"></i> Registration Management</button>
+        <button class="dropdown-btn"><i class="bi bi-person-fill-add"></i> Bank  Management</button>
         <ul class="dropdown-menu">
-            <li><a href="#" class="open-modal" data-modal="bankModal"><i class="bi bi-database-fill-add"></i> Bank Setup</a></li>
-            <li><a href="#" class="open-modal" data-modal="expensesModal"><i class="bi bi-database-fill-add"></i> Expenses Setup</a></li>
-            <li><a href="#" class="open-modal" data-modal="customerModal"><i class="bi bi-database-fill-add"></i> Customer Setup</a></li>
-            <li><a href="#" class="open-modal" data-modal="percentageModal"><i class="bi bi-database-fill-add"></i> Percentage Setup</a></li>
-            <li><a href="#" class="open-modal" data-modal="vendorModal"><i class="bi bi-database-fill-add"></i> Vendor Setup</a></li>
-            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Agent Setup</a></li>
-            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Purchasers Setup</a></li>
-            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Partner Setup</a></li>
-            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Logistics Setup</a></li>
-            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Stakeholder Setup</a></li>
-            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Property Setup</a></li>
-            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Capital Setup</a></li>
-            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Profit Setup</a></li>
-            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Employee Setup</a></li>
-            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> User Setup</a></li>
-            
+            <li><a href="#" class="open-modal" data-modal="bankModal"><i class="bi bi-database-fill-add"></i> Bank Transfer</a></li>
+            <li><a href="#" class="open-modal" data-modal="expensesModal"><i class="bi bi-database-fill-add"></i> Adjustment</a></li>
+            <li><a href="#" class="open-modal" data-modal="customerModal"><i class="bi bi-database-fill-add"></i> Customer Payment</a></li>
             <!-- Add more items as needed -->
         </ul>
     </div>
@@ -261,10 +248,10 @@ table td{
   <!-- Content -->
   <div class="content">
     <hr style="border: 1px solid darkgreen;"/>
-    <h1><i class="bi bi-people-fill"></i> General Balances on the day of <span id="currentDate"></span>.</h1>
+    <h1><i class="bi bi-people-fill"></i> Investment  Dashboard on the day of <span id="currentDate"></span>.</h1>
     <hr style="border: 1px solid darkgreen;" />
     <br />
-    <!-- Bank & Expenses Balances -->
+    <!-- Bank & Profit Balances -->
     <div class="parent">
       <div class="child-1">
         <h3>Bank Balances on <span id="currentDate"></span></h3>
@@ -272,143 +259,15 @@ table td{
         <ul id="accountsDisplay" class="wt-95"></ul>
       </div>
       <div class="child-2">
-        <h3>Expenses Balances on <span id="currentDate"></span></h3>
-        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..."/>
-        <ul id="accountsDisplay" class="wt-95"></ul>
-      </div>
-    </div>
-    <hr style="border: 1px solid darkgreen;" />
-    <br />
-    
-    <!-- Customer & Percentage Balances -->
-    <div class="parent">
-      <div class="child-1">
-        <h3>Customer Balances on <span id="currentDate"></span></h3>
-        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..."/>
-        <ul id="accountsDisplay" class="wt-95"></ul>
-      </div>
-      <div class="child-2">
-        <h3>Percentage Balances on <span id="currentDate"></span></h3>
-        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..."/>
-        <ul id="accountsDisplay" class="wt-95"></ul>
-      </div>
-    </div>
-    <hr style="border: 1px solid darkgreen;" />
-    <br />
-    
-    <!-- Vendor & Agent Supplier Balances -->
-    <div class="parent">
-      <div class="child-1">
-        <h3>Vendor Supplier Balances on <span id="currentDate"></span></h3>
-        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
-        <ul id="accountsDisplay" class="wt-95"></ul>
-      </div>
-      <div class="child-2">
-        <h3>Agent Supplier Balances on <span id="currentDate"></span></h3>
-        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
-        <ul id="accountsDisplay" class="wt-95"></ul>
-      </div>
-    </div>
-    <hr style="border: 1px solid darkgreen;" />
-    <br />
-
-    <!-- Purchasers & Partners Balances -->
-    <div class="parent">
-      <div class="child-1">
-        <h3>Purchasers Balances on <span id="currentDate"></span></h3>
-        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
-        <ul id="accountsDisplay" class="wt-95"></ul>
-      </div>
-      <div class="child-2">
-        <h3>Partner Balances on <span id="currentDate"></span></h3>
-        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
-        <ul id="accountsDisplay" class="wt-95"></ul>
-      </div>
-    </div>
-    <hr style="border: 1px solid darkgreen;" />
-    <br />
- 
-    <!-- Logistics & Property Balances -->
-    <div class="parent">
-      <div class="child-1">
-        <h3>Logistics Balances on <span id="currentDate"></span></h3>
-        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
-        <ul id="accountsDisplay" class="wt-95"></ul>
-      </div>
-      <div class="child-2">
-        <h3>Property Balances on <span id="currentDate"></span></h3>
-        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
-        <ul id="accountsDisplay" class="wt-95"></ul>
-      </div>
-    </div>
-    <hr style="border: 1px solid darkgreen;" />
-    <br />
-    
-    <!-- Stakeholder & Outstanding Store Balances -->
-    <div class="parent">
-      <div class="child-1">
-        <h3>Stakeholders Balances on <span id="currentDate"></span></h3>
-        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
-        <ul id="accountsDisplay" class="wt-95"></ul>
-      </div>
-      <div class="child-2">
-        <h3>Outstanding Stock Balances on <span id="currentDate"></span></h3>
-        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
-        <ul id="accountsDisplay" class="wt-95"></ul>
-      </div>
-    </div>
-    <hr style="border: 1px solid darkgreen;" />
-    <br />
-    
-    <!-- Capital & Profit Balances -->
-    <div class="parent">
-      <div class="child-1">
-        <h3>Capital Balances on <span id="currentDate"></span></h3>
-        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
-        <ul id="accountsDisplay" class="wt-95"></ul>
-      </div>
-      <div class="child-2">
         <h3>Profit Balances on <span id="currentDate"></span></h3>
-        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..."/>
         <ul id="accountsDisplay" class="wt-95"></ul>
       </div>
     </div>
     <hr style="border: 1px solid darkgreen;" />
     <br />
     
-    <!-- Assets & Margin Calculation -->
-    <div class="parent">
-      <div class="child-1">
-        <h4 style="color: darkcyan;">Credit & Debit Balances on <span id="currentDate"></span></h4>
-        <hr style="border: 1px solid #eee;" />
-        <br />
-        <table>
-          <tr>
-            <th>S/No</th>
-            <th>Category Name</th>
-            <th>Credit Amount</th>
-            <th>Debit Amount</th>
-          </tr>
-          <tbody>
-            <tr>
-              <td colspan="4" class="no-data">No More Category have balances up to now!</td>
-            </tr>
-            <tr>
-              <td colspan="4"><small></small></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="child-2">
-        <h4 style="color: darkred;">Credit - Debit = Margin on <span id="currentDate"></span></h4>
-        <hr style="border: 1px solid #eee;" />
-        <br />
-        <h3 style="margin: 5px;">Total Credit: <span style="color: green;">₦0.00</span></h3>
-        <h3 style="margin: 5px;">Total Debit: <span style="color: red;">₦0.00</span></h3>
-        <br />
-        <h2 style="padding: 5px;margin: 5px;">MARGIN: ₦0.00 </h2>
-      </div>
-    </div>
+
     <br />
   </div>
   
