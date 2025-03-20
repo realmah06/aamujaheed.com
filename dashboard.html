@@ -13,11 +13,6 @@
   body{
     display: flex;
   }
-  .sidebar {
-  width: 6%;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
-}
 
 .left {
   width: 66%;
@@ -28,54 +23,7 @@
   padding: 10px;
 }
 
-.sidebar img {
-  padding: 10px;
-}
 
-.sidebar .lists {
-  padding: 5px;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.sidebar .lists a {
-  text-decoration: none;
-  padding: 10px;
-  color: #223139;
-  font-size: 27px;
-}
-.head{
-  position: fixed;
-  top: 0;
-  left: 0;
-  font-size: 25px;
-  cursor: pointer;
-  border-bottom: 1px solid #eee;
-  width: 100%;
-  z-index: 1001;
-  background: #fff;
-  color: #000;
-  font-size: 30px;
-}
-/* Toggle button */
-.toggle-btn {
-  display: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin: 7px;
-}
-
-/* Overlay for closing sidebar */
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-}
 .nonn{
   display: none;
 }
@@ -201,25 +149,7 @@ td{
     transform: translateY(0);
   }
 }
-.title-alert{
-  font-size: 25px;
-  margin: 7px;
-  font-weight: 500;
-}
 
-.my-confirm-btn {
-  background-color: #134C72 !important;
-  color: white !important;
-  margin: 5px;
-  padding: 10x 20px;
-}
-
-.my-cancel-btn {
-  background-color: darkred !important;
-  color: white !important;
-  margin: 5px;
-  padding: 10x 20px;
-}
 .td b{
   font-weight: 500;
   font-size: 12px;
@@ -261,34 +191,7 @@ td{
   .divs{
     height: auto;
   }
-  .sidebar {
-    position: fixed;
-    left: -100%;
-    width: 80px;
-    height: 100vh;
-    background: white;
-    transition: left 0.3s ease-in-out;
-    z-index: 1002;
-    overflow: scroll;
-    scrollbar-width: none;
-  }
-  .sidebar img{
-    height: 60px;
-  }
-  .sidebar .lists a{
-    font-size: 25px;
-  }
-  .toggle-btn {
-    display: block;
-  }
 
-  .sidebar.show {
-    left: 0;
-  }
-
-  .overlay.show {
-    display: block;
-  }
   .left{
     width: 100%;
   }
@@ -526,7 +429,7 @@ td{
           <th>Date<small><em>(time)</em></small></th>
           <th>Poster</th>
           <th>Category</th>
-          <th>Reason</th>
+          <th style="width: 45%;">Reason</th>
           <th>Amount</th>
           <th>Report</th>
           <th>Discard</th>

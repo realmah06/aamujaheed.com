@@ -1,0 +1,508 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard @aamujaheed.com.ng</title>
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="inputs.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<style>
+  body{
+    display: flex;
+  }
+  .content{
+    margin-top: 80px;
+    width: 100%;
+    height: 74vh;
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+  .content h1{
+    padding: 10px;
+    font-size: 20px;
+    color: #214B7E;
+    margin: 7px;
+    margin: 7px;
+    text-align: center;
+  }
+  .sub-header{
+    padding: 10px;
+    background-color: #fff;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    left: 120px;
+  }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-btn {
+    background-color: #fff;
+    color: #214B7E;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+.dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    min-width: 200px;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: scroll;
+    scrollbar-width: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show dropdown when active */
+.dropdown.active .dropdown-menu {
+    max-height: 200px;
+    opacity: 1;
+    visibility: visible;
+}
+  /* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 40%;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+.parent{
+  display: flex;
+}
+.parent .child-1, .child-2{
+  flex-grow: 1;
+  padding: 10px 20px;
+  gap: 50px;
+  margin: 15px;
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+table th{
+  padding: 7px;
+  border: 1px solid #eee;
+  font-size: 15px;
+}
+table tr{
+  border: 1px solid #ddd;
+}
+table td{
+  padding: 7px;
+}
+.no-data{
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #214B7E;
+  text-align: center;
+}
+.no-data:hover{
+  background-color: #F3F3F3;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease-in-out;
+}
+#accountsDisplay{
+  height: 35vh;
+  overflow: scroll;
+}
+.parent h3{font-size: 17px;}
+  @media screen and (max-width: 1000px){
+    .content{
+      margin-top: 110px;
+      width: 100%;
+      height: 80vh;
+    }
+    .parent{
+      display: block;
+    }
+    #accountsDisplay{
+      height: 28vh;
+    }
+    .child-1{
+      border-bottom: 3px solid darkgreen;
+    }
+    .sub-header{
+      top: 50px;
+      width: 100%;
+      z-index: 100;
+      left: 0;
+    }
+  }
+</style>
+<body>
+  <!-- Show Menu Toggle -->
+  <div class="head">
+    <div class="toggle-btn" onclick="toggleSidebar()">
+      <i class="bi bi-list"></i>
+    </div>
+  </div>
+  <!-- Menu Overlay -->
+  <div class="overlay" id="overlay" onclick="hideSidebar()"></div>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <center>
+      <img src="logo.jpg" alt="logo" height="60">
+    </center>
+    <hr style="border: 1px solid #eee;" /><br />
+    <div class="lists">
+      <a href="dashboard.html">
+        <i class="bi bi-house-check"></i>
+      </a>
+      <br /><br />
+      <a href="balances.html">
+        <i class="bi bi-people-fill"></i>
+      </a>
+      <br /><br />
+      <a href="investment.html">
+        <i class="bi bi-bar-chart"></i>
+      </a>
+      <br /><br />
+      <a href="supply.html">
+        <i class="bi bi-cart-check"></i>
+      </a>
+      <br /><br />
+      <a href="delivery.html">
+        <i class="bi bi-handbag"></i>
+      </a>
+      <br /><br />
+      <a href="chart.html">
+        <i class="bi bi-chat-square-text"></i>
+      </a>
+      <br /><br />
+      <a href="report.html">
+        <i class="bi bi-cloud-haze"></i>
+      </a>
+      <br /><br />
+      <hr style="border: 1px solid #eee;" /><br />
+      <a href="index.html" style="bottom: 10px; position: relative;top: 30px;">
+        <i class="bi bi-toggle-off"></i>
+      </a>
+    </div>
+  </div>
+  <!-- Sub Header -->
+  <div class="sub-header">
+    <div class="dropdown">
+        <button class="dropdown-btn"><i class="bi bi-person-fill-add"></i> Registration Management</button>
+        <ul class="dropdown-menu">
+            <li><a href="#" class="open-modal" data-modal="bankModal"><i class="bi bi-database-fill-add"></i> Bank Setup</a></li>
+            <li><a href="#" class="open-modal" data-modal="expensesModal"><i class="bi bi-database-fill-add"></i> Expenses Setup</a></li>
+            <li><a href="#" class="open-modal" data-modal="customerModal"><i class="bi bi-database-fill-add"></i> Customer Setup</a></li>
+            <li><a href="#" class="open-modal" data-modal="percentageModal"><i class="bi bi-database-fill-add"></i> Percentage Setup</a></li>
+            <li><a href="#" class="open-modal" data-modal="vendorModal"><i class="bi bi-database-fill-add"></i> Vendor Setup</a></li>
+            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Agent Setup</a></li>
+            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Purchasers Setup</a></li>
+            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Partner Setup</a></li>
+            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Logistics Setup</a></li>
+            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Stakeholder Setup</a></li>
+            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Property Setup</a></li>
+            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Capital Setup</a></li>
+            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Profit Setup</a></li>
+            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> Employee Setup</a></li>
+            <li><a href="#" class="open-modal" data-modal="employeeModal"><i class="bi bi-database-fill-add"></i> User Setup</a></li>
+            
+            <!-- Add more items as needed -->
+        </ul>
+    </div>
+  </div>
+  <!-- Content -->
+  <div class="content">
+    <hr style="border: 1px solid darkgreen;"/>
+    <h1><i class="bi bi-people-fill"></i> General Balances on the day of <span id="currentDate"></span>.</h1>
+    <hr style="border: 1px solid darkgreen;" />
+    <br />
+    <!-- Bank & Expenses Balances -->
+    <div class="parent">
+      <div class="child-1">
+        <h3>Bank Balances on <span id="currentDate"></span></h3>
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..."/>
+        <ul id="accountsDisplay" class="wt-95"></ul>
+      </div>
+      <div class="child-2">
+        <h3>Expenses Balances on <span id="currentDate"></span></h3>
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..."/>
+        <ul id="accountsDisplay" class="wt-95"></ul>
+      </div>
+    </div>
+    <hr style="border: 1px solid darkgreen;" />
+    <br />
+    
+    <!-- Customer & Percentage Balances -->
+    <div class="parent">
+      <div class="child-1">
+        <h3>Customer Balances on <span id="currentDate"></span></h3>
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..."/>
+        <ul id="accountsDisplay" class="wt-95"></ul>
+      </div>
+      <div class="child-2">
+        <h3>Percentage Balances on <span id="currentDate"></span></h3>
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..."/>
+        <ul id="accountsDisplay" class="wt-95"></ul>
+      </div>
+    </div>
+    <hr style="border: 1px solid darkgreen;" />
+    <br />
+    
+    <!-- Vendor & Agent Supplier Balances -->
+    <div class="parent">
+      <div class="child-1">
+        <h3>Vendor Supplier Balances on <span id="currentDate"></span></h3>
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
+        <ul id="accountsDisplay" class="wt-95"></ul>
+      </div>
+      <div class="child-2">
+        <h3>Agent Supplier Balances on <span id="currentDate"></span></h3>
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
+        <ul id="accountsDisplay" class="wt-95"></ul>
+      </div>
+    </div>
+    <hr style="border: 1px solid darkgreen;" />
+    <br />
+
+    <!-- Purchasers & Partners Balances -->
+    <div class="parent">
+      <div class="child-1">
+        <h3>Purchasers Balances on <span id="currentDate"></span></h3>
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
+        <ul id="accountsDisplay" class="wt-95"></ul>
+      </div>
+      <div class="child-2">
+        <h3>Partner Balances on <span id="currentDate"></span></h3>
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
+        <ul id="accountsDisplay" class="wt-95"></ul>
+      </div>
+    </div>
+    <hr style="border: 1px solid darkgreen;" />
+    <br />
+ 
+    <!-- Logistics & Property Balances -->
+    <div class="parent">
+      <div class="child-1">
+        <h3>Logistics Balances on <span id="currentDate"></span></h3>
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
+        <ul id="accountsDisplay" class="wt-95"></ul>
+      </div>
+      <div class="child-2">
+        <h3>Property Balances on <span id="currentDate"></span></h3>
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
+        <ul id="accountsDisplay" class="wt-95"></ul>
+      </div>
+    </div>
+    <hr style="border: 1px solid darkgreen;" />
+    <br />
+    
+    <!-- Stakeholder & Outstanding Store Balances -->
+    <div class="parent">
+      <div class="child-1">
+        <h3>Stakeholders Balances on <span id="currentDate"></span></h3>
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
+        <ul id="accountsDisplay" class="wt-95"></ul>
+      </div>
+      <div class="child-2">
+        <h3>Outstanding Stock Balances on <span id="currentDate"></span></h3>
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
+        <ul id="accountsDisplay" class="wt-95"></ul>
+      </div>
+    </div>
+    <hr style="border: 1px solid darkgreen;" />
+    <br />
+    
+    <!-- Capital & Profit Balances -->
+    <div class="parent">
+      <div class="child-1">
+        <h3>Capital Balances on <span id="currentDate"></span></h3>
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
+        <ul id="accountsDisplay" class="wt-95"></ul>
+      </div>
+      <div class="child-2">
+        <h3>Profit Balances on <span id="currentDate"></span></h3>
+        <input type="search" name="search" id="search" class="wt-95" placeholder="Search..." />
+        <ul id="accountsDisplay" class="wt-95"></ul>
+      </div>
+    </div>
+    <hr style="border: 1px solid darkgreen;" />
+    <br />
+    
+    <!-- Assets & Margin Calculation -->
+    <div class="parent">
+      <div class="child-1">
+        <h4 style="color: darkcyan;">Credit & Debit Balances on <span id="currentDate"></span></h4>
+        <hr style="border: 1px solid #eee;" />
+        <br />
+        <table>
+          <tr>
+            <th>S/No</th>
+            <th>Category Name</th>
+            <th>Credit Amount</th>
+            <th>Debit Amount</th>
+          </tr>
+          <tbody>
+            <tr>
+              <td colspan="4" class="no-data">No More Category have balances up to now!</td>
+            </tr>
+            <tr>
+              <td colspan="4"><small></small></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="child-2">
+        <h4 style="color: darkred;">Credit - Debit = Margin on <span id="currentDate"></span></h4>
+        <hr style="border: 1px solid #eee;" />
+        <br />
+        <h3 style="margin: 5px;">Total Credit: <span style="color: green;">₦0.00</span></h3>
+        <h3 style="margin: 5px;">Total Debit: <span style="color: red;">₦0.00</span></h3>
+        <br />
+        <h2 style="padding: 5px;margin: 5px;">MARGIN: ₦0.00 </h2>
+      </div>
+    </div>
+    <br />
+  </div>
+  
+      <!-- Modal Template -->
+    <div id="bankModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="bankModal">&times;</span>
+            <h2>Bank Setup</h2>
+            <form>
+                <label for="bankName">Bank Name:</label>
+                <input type="text" id="bankName" placeholder="Enter bank name">
+                
+                <label for="accountNumber">Account Number:</label>
+                <input type="text" id="accountNumber" placeholder="Enter account number">
+                
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="expensesModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="expensesModal">&times;</span>
+            <h2>Expenses Setup</h2>
+            <form>
+                <label for="expenseType">Expense Type:</label>
+                <input type="text" id="expenseType" placeholder="Enter expense type">
+                
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" placeholder="Enter amount">
+                
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add more modals for other setups -->
+</body>
+<script src="inputs.js"></script>
+<script>
+  function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("show");
+  document.getElementById("overlay").classList.toggle("show");
+}
+
+function hideSidebar() {
+  document.getElementById("sidebar").classList.remove("show");
+  document.getElementById("overlay").classList.remove("show");
+}
+
+document.querySelectorAll("details").forEach((detail) => {
+  detail.addEventListener("click", function() {
+    document.querySelectorAll("details").forEach((otherDetail) => {
+      if (otherDetail !== detail) {
+        otherDetail.removeAttribute("open");
+      }
+    });
+  });
+});
+
+
+let inactivityTimeout;
+
+function resetTimer() {
+  clearTimeout(inactivityTimeout); // Clear previous timeout
+  inactivityTimeout = setTimeout(() => {
+    window.location.href = "index.html"; // Redirect to index page
+  }, 300000); // 5 minutes (300,000 milliseconds)
+}
+
+// Reset the timer when user interacts (mouse, keyboard, touch)
+document.addEventListener("mousemove", resetTimer);
+document.addEventListener("keydown", resetTimer);
+document.addEventListener("touchstart", resetTimer);
+
+// Start the inactivity timer
+resetTimer();
+
+
+
+
+
+document.querySelector(".dropdown-btn").addEventListener("click", function() {
+    document.querySelector(".dropdown").classList.toggle("active");
+});
+
+// Close dropdown if clicked outside
+document.addEventListener("click", function(event) {
+    const dropdown = document.querySelector(".dropdown");
+    if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove("active");
+    }
+});
+
+</script>
+</html>

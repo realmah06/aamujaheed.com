@@ -70,3 +70,51 @@ function togglePassword() {
                 toggleBtn.textContent = "Show";
             }
         }
+        
+        
+        document.addEventListener("DOMContentLoaded", () => {
+    const openButtons = document.querySelectorAll(".open-modal");
+    const closeButtons = document.querySelectorAll(".close");
+    const modals = document.querySelectorAll(".modal");
+
+    // Open modal
+    openButtons.forEach(button => {
+        button.addEventListener("click", (e) => {
+            e.preventDefault();
+            const modalId = button.getAttribute("data-modal");
+            document.getElementById(modalId).style.display = "flex";
+        });
+    });
+
+    // Close modal
+    closeButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const modalId = button.getAttribute("data-modal");
+            document.getElementById(modalId).style.display = "none";
+        });
+    });
+
+    // Close modal when clicking outside
+    modals.forEach(modal => {
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+});
+
+
+
+function getFormattedDate() {
+    const today = new Date();
+    const day = today.getDate().toString().padStart(2, '0');
+    const month = today.toLocaleString('default', { month: 'long' });
+    const year = today.getFullYear();
+    return `${day}-${month}-${year}`;
+}
+
+// Select all elements with the class "current-date" and update them
+document.querySelectorAll("#currentDate").forEach(element => {
+    element.textContent = getFormattedDate();
+});
