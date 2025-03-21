@@ -160,6 +160,28 @@ table td{
   height: 35vh;
   overflow: scroll;
 }
+details{
+  margin: 5px;
+}
+details summary{
+  padding: 10px 17px;
+  list-style: none;
+  background-color: #ECECEC;
+  color: #4879CA;
+  font-size: 14px;
+  font-weight: 450;
+  border-radius: 3px;
+}
+.details-container{
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #ddd;
+  height: 41vh;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+details[open] {
+  animation: fadeIn 0.3s ease-in-out;
+}
 .parent h3{font-size: 16px;}
   @media screen and (max-width: 1000px){  
     .content{
@@ -204,11 +226,11 @@ table td{
       </a>
       <br /><br />
       <a href="balances.html">
-        <i class="bi bi-people-fill"></i>
+        <i class="bi bi-people"></i>
       </a>
       <br /><br />
       <a href="investment.html">
-        <i class="bi bi-bar-chart"></i>
+        <i class="bi bi-bar-chart-fill"></i>
       </a>
       <br /><br />
       <a href="supply.html">
@@ -267,6 +289,43 @@ table td{
     <hr style="border: 1px solid darkgreen;" />
     <br />
     
+  <details>
+    <summary><i class="bi bi-pencil-square"></i> Adjustment Transactions  <span style="float: right;">0</span></summary>
+    <div class="details-container">
+    <h3 style="margin: 10px;padding10px;text-align: center;">0 Adjustment Transactions Waiting to Confirm</h2>
+    <br />
+    <div class="details-header">
+      <button>Confirm Mark Ones</button>
+      <input type="search" placeholder="Search Adjustment Transactions..." class="wt-40">
+    </div>
+    <hr style="border: 1px solid #eee;" />
+    <br />
+    <div class="details-table">
+      <table>
+        <tr>
+          <th>S/No</th>
+          <th>Date<small><em>(time)</em></small></th>
+          <th>Poster</th>
+          <th>Category</th>
+          <th style="width: 45%;">Reason</th>
+          <th>Amount</th>
+          <th>Report</th>
+          <th>Discard</th>
+          <th>Confirm</th>
+        </tr>
+        <tbody>
+          <tr>
+            <td class="no-data" colspan="8">No More Adjustment Transactions is available at this moment!</td>
+          </tr>
+          <tr>
+            <td colspan="2" style="font-weight: bold;">Grand Total</td>
+            <td colspan="2" style="font-weight: bold;color: green;">₦0.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </details>
 
     <br />
   </div>
